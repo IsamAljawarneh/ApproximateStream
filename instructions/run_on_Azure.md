@@ -56,38 +56,6 @@ curl -sS -u admin:$password -G https://skafka.azurehdinsight.net/api/v1/clusters
 ```
 
 # running java kafka producer and send data to Azure Kafka cluster
-[try this to run the local file](https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-producer-consumer-api)
-* you need to add this to the pom.xml:
-
-
-```
- <plugin>
-
-                <!-- Building an executable jar -->
-
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-
-                            <!-- give full qualified name of your main class-->
-                            <mainClass>com.bolingcavalry.producekafkamessage.SendMessageApplication</mainClass>
-
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-
-```
-* then you can run 
-```
-mvn clean package
-java -jar original-flinksql-1.0-SNAPSHOT.jar
-```
-- use the following to put parameters as args
-> [args](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/main/Producer-Consumer/src/main/java/com/microsoft/example/Run.java)
 
 - **copying files**
 
@@ -146,11 +114,11 @@ java -jar kafka-producer-consumer.jar nyc spatial $KAFKABROKERS /home/isam/nyc.c
 ```
  - kafka java producer takes the following args
  ```
-  String topicName = args[1];
-        String brokers = args[2];
-        String path = args[3];
-        String data = args[0];
-        int time =Integer.parseInt(args[4]);
+  args[0] -->  data     :(String) 
+  args[1] -->  topicName :(type:string)
+  args[2] -->  brokers :(String)
+  args[3] -->  path    :(String) 
+  args[4] -->  time    : int  
         
         time is the time between tuples generated
         to get the path:
@@ -158,15 +126,3 @@ java -jar kafka-producer-consumer.jar nyc spatial $KAFKABROKERS /home/isam/nyc.c
         data is either shenzhen or nyc
  ```
 
-# now the fun part! [ANOTHER WAY,HARDER!] running java kafka producer and send data to Azure Kafka cluster using IntelliJ
-
-[Fun](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-intellij-tool-plugin)
-
-- install Azure toolkit for IntelliJ
-- > file - settings plugins - azure toolkit for IntelliJ - install
-
-[connect to kafka on Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-connect-vpn-gateway)
-
-
-[use python](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-python-package-installation)
-[py](https://github.com/awalin/kafka-sparkStreaming-jupyter-notebook/blob/master/notebooks/KafkaProducer.ipynb)
