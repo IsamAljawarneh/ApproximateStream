@@ -93,7 +93,7 @@ we need to store it in a blob storage:
 - storage explorer --> blob containers --> sspark --> create new folder "datasets"
 - upload shenzhen_converted.geojson
 ```
-[find it here](./data/)
+[find it here](../data/)
 ```
 - then you can access it in your notebook using:
 - "wasb://sspark@7q6kgdctotuwu.blob.core.windows.net/datasets/shenzhen_converted.geojson"
