@@ -2,7 +2,7 @@
 **to deploy a kafka - spark structured streaming cluser on Azure, do the following: Use Apache Spark Structured Streaming with Apache Kafka on HDInsight** 
 [SparkStruturedStreaming-kafka-Azure](https://docs.microsoft.com/it-it/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming)
 
-# install jq
+# install jq on your local machine
 ```
 sudo apt update
 sudo apt install jq
@@ -54,7 +54,9 @@ curl -sS -u admin:$password -G "https://skafka.azurehdinsight.net/api/v1/cluster
 ```
 curl -sS -u admin:$password -G https://skafka.azurehdinsight.net/api/v1/clusters/skafka/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
 ```
-
+# Copying required jars!
+**this project depends on some spatial processing libraries above Apache Spark, you need to load them to the project in order to be able to call them in Jupyter**
+- [find the jars here](./instructions/jars/)
 # running java kafka producer and send data to Azure Kafka cluster
 
 - **copying files**
