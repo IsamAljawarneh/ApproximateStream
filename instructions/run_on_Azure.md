@@ -116,10 +116,7 @@ The 25th Annual International Conference on Mobile Computing and Networking. 201
   - copy the login command and use it in your local machine's terminal
    > ssh isam@skafka-ssh.azurehdinsight.net
 2. get the kafkaBrokers list running the following command in your local machine
-```
-curl -sS -u admin:$password -G https://skafka.azurehdinsight.net/api/v1/clusters/skafka/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
-```
- - *OR* in kafka cluster head node **(install jq also in the headnode)**
+
 ```
 sudo apt -y install jq
 export password='cluster_pass'
@@ -133,10 +130,7 @@ export KAFKABROKERS=$(curl -sS -u admin:$password -G https://skafka.azurehdinsig
 ```
 **you need to create the topic first, maybe in the jupyter notebook with the %%bash magic command**
 ```
-```
-java -jar kafka-producer-consumer.jar shenzhen spatial1 wn0-skafka.j5rjzygn4qce1gsf4rcdijhweg.fx.internal.cloudapp.net:9092,wn1-skafka.j5rjzygn4qce1gsf4rcdijhweg.fx.internal.cloudapp.net:9092 /home/isam/guang.csv 1
-```
- - **OR** if you have exported KAFKABROKERS to the *environment variables* like above
+
 ```
 java -jar kafka-producer-consumer.jar shenzhen spatial1 $KAFKABROKERS /home/isam/guang.csv 1
 ```
