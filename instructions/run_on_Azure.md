@@ -80,7 +80,9 @@ curl -sS -u admin:$password -G https://skafka.azurehdinsight.net/api/v1/clusters
 scp ./target/saosKafkaProducer-1.0-SNAPSHOT.jar isam@skafka-ssh.azurehdinsight.net:kafka-producer-consumer.jar
 ```
 - copy the geojson file **shenzhen_converted.geojson** to the same working directory
-- ```scp guang.csv isam@skafka-ssh.azurehdinsight.net:guang.csv```
+```
+scp guang.csv isam@skafka-ssh.azurehdinsight.net:guang.csv
+```
 
 
 ```
