@@ -6,3 +6,5 @@ relative_links:
 include:
   - README.md
   - run_on_Azure.md
+
+theme: jekyll-theme-slate
