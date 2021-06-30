@@ -99,6 +99,16 @@ we need to store it in a blob storage:
 - "wasb://sspark@7q6kgdctotuwu.blob.core.windows.net/datasets/shenzhen_converted.geojson"
 - where sspark is the spark cluster name
 ```
+
+- copy the `Electric Vehicle Data` mobility data [find it here](https://www.cs.rutgers.edu/~dz220/Data.html)
+"...the **go to** statement should be abolished..." [[1]](#1).
+
+## References
+<a id="1">[1]</a> 
+Dijkstra, E. W. (1968). 
+Go to statement considered harmful. 
+Communications of the ACM, 11(3), 147-148.
+
 # to run kafka producer
 1. create the topic in Jupyter
 2. login to the headnode of kafka cluster
