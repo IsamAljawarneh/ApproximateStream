@@ -91,8 +91,11 @@ we need to store it in a blob storage:
 - go to "HDInsight clusters" --> Spark cluster name --> search for "storage accounts",
 - select the "Azure Storage" name 
 - storage explorer --> blob containers --> sspark --> create new folder "datasets"
-- upload shenzhen.geojson
-- then you can access it using
+- upload shenzhen_converted.geojson
+```
+[find it here](./data/)
+```
+- then you can access it in your notebook using:
 - "wasb://sspark@7q6kgdctotuwu.blob.core.windows.net/datasets/shenzhen_converted.geojson"
 - where sspark is the spark cluster name
 ```
