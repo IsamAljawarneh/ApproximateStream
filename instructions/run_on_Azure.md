@@ -48,8 +48,7 @@ curl -sS -u admin:$password -G "https://skafka.azurehdinsight.net/api/v1/cluster
 
 - Replace KafkaCluster with the name of your Kafka cluster (skafka), and KafkaPassword with the cluster login password.
 2. From a web browser, navigate to https://CLUSTERNAME.azurehdinsight.net/jupyter, where CLUSTERNAME is the name of your spark cluster (sspark in this case). When prompted, enter the cluster login (admin) and password used when you created the cluster.
-3. also consider [Running a Jupyter notebook from a remote server](https://ljvmiranda921.github.io/notebook/2018/01/31/running-a-jupyter-notebook/) using Forward port
-5. Use the curl and jq commands  to obtain broker hosts information.
+4. Use the curl and jq commands  to obtain broker hosts information.
 - > curl -sS -u admin:$password -G https://skafka.azurehdinsight.net/api/v1/clusters/skafka/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
 
 ```
