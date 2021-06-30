@@ -75,14 +75,10 @@ curl -sS -u admin:$password -G https://skafka.azurehdinsight.net/api/v1/clusters
 
 ***copying files***
 
-- copy the .jar fat file from the 'target' folder to a folder in the kafka cluster in Azure
-- > scp ./target/saosKafkaProducer-1.0-SNAPSHOT.jar isam@skafka-ssh.azurehdinsight.net:kafka-producer-consumer.jar
+- copy the Kafka Java producer fat .jar file `saosKafkaProducer-1.0-SNAPSHOT.jar` [find it here](./jars)  from this folder  to a folder in your kafka cluster in Azure
+```scp ./target/saosKafkaProducer-1.0-SNAPSHOT.jar isam@skafka-ssh.azurehdinsight.net:kafka-producer-consumer.jar```
 - copy the geojson file **shenzhen_converted.geojson** to the same working directory
-- > scp guang.csv isam@skafka-ssh.azurehdinsight.net:guang.csv
-
-```
- scp nyc.csv isam@skafka-ssh.azurehdinsight.net:nyc.csv 
- ```
+```scp guang.csv isam@skafka-ssh.azurehdinsight.net:guang.csv```
 
 
 ```
