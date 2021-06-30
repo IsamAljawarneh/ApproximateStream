@@ -101,13 +101,13 @@ we need to store it in a blob storage:
 ```
 
 - copy the `Electric Vehicle Data` mobility data [find it here](https://www.cs.rutgers.edu/~dz220/Data.html)
-"...the **go to** statement should be abolished..." [[1]](#1).
+- "...N.B. if you are using this data **add the following reference** ..." [[1]](#1).
 
 ## References
 <a id="1">[1]</a> 
-Dijkstra, E. W. (1968). 
-Go to statement considered harmful. 
-Communications of the ACM, 11(3), 147-148.
+Wang, Guang, et al. (2019). 
+"Experience: Understanding long-term evolving patterns of shared electric vehicle networks.". 
+The 25th Annual International Conference on Mobile Computing and Networking. 2019.
 
 # to run kafka producer
 1. create the topic in Jupyter
