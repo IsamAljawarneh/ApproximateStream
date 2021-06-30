@@ -139,9 +139,8 @@ java -jar kafka-producer-consumer.jar shenzhen spatial1 wn0-skafka.j5rjzygn4qce1
  - **OR** if you have exported KAFKABROKERS to the *environment variables* like above
 ```
 java -jar kafka-producer-consumer.jar shenzhen spatial1 $KAFKABROKERS /home/isam/guang.csv 1
-java -jar kafka-producer-consumer.jar nyc spatial $KAFKABROKERS /home/isam/nyc.csv 1
 ```
- - kafka java producer takes the following args
+ - kafka java producer takes the following parameters
  ```
   args[0] -->  data     :(String) 
   args[1] -->  topicName :(type:string)
