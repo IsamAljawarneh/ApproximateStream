@@ -57,6 +57,20 @@ curl -sS -u admin:$password -G https://skafka.azurehdinsight.net/api/v1/clusters
 # Copying required jars!
 **this project depends on some spatial processing libraries above Apache Spark, you need to load them to the project in order to be able to call them in Jupyter**
 - [find the jars here](./jars/)
+- copy the file titled `magellan-1.0.5-s_2.11.jar` to the `storage account of your Spark cluster`
+- `this .jar library will be used as a dependency that will be added to the library using the Jupyter Spark magic command`
+- specifically, it will be imported in the first cell
+```
+%%configure -f
+{
+    "conf": {
+        "spark.jars.packages": "org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0,com.esri.geometry:esri-geometry-api:1.2.1,commons-io:commons-io:2.6,org.apache.spark:spark-streaming_2.11:2.2.0",
+        "spark.jars":"wasbs://sspark@7fek46h7orhig.blob.core.windows.net/jars/magellan-1.0.5-s_2.11.jar",
+        "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11",
+        "spark.dynamicAllocation.enabled": false
+    }
+}
+```
 # running java kafka producer and send data to Azure Kafka cluster
 
 - **copying files**
