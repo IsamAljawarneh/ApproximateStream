@@ -73,7 +73,7 @@ curl -sS -u admin:$password -G https://skafka.azurehdinsight.net/api/v1/clusters
 ```
 # running java kafka producer and send data to Azure Kafka cluster
 
-- **copying files**
+***copying files***
 
 - copy the .jar fat file from the 'target' folder to a folder in the kafka cluster in Azure
 - > scp ./target/saosKafkaProducer-1.0-SNAPSHOT.jar isam@skafka-ssh.azurehdinsight.net:kafka-producer-consumer.jar
