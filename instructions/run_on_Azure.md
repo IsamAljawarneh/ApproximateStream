@@ -10,7 +10,7 @@ sudo apt install jq
 
 # Deploy the Spark-kafka cluster using the template
 - [template deploy azure kafka-spark cluster](https://docs.microsoft.com/it-it/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming)
-- [hosted locally](https://github.com/IsamAljawarneh/BigDataCourses/blob/master/setup/command/azuredeploy.json)
+- [hosted locally](https://github.com/IsamAljawarneh/BigDataCourses/blob/master/instructions/azuredeploy.json)
 [![](https://github.com/IsamAljawarneh/BigDataCourses/blob/master/setup/command/images/hdi-deploy-to-azure1.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgithub.com%2FIsamAljawarneh%2FBigDataCourses%2Fblob%2Fmaster%2Fsetup%2Fcommand%2Fazuredeploy.json)
 
 > https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-kafka-structured-streaming%2Fmaster%2Fazuredeploy.json
