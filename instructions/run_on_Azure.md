@@ -56,7 +56,7 @@ curl -sS -u admin:$password -G https://skafka.azurehdinsight.net/api/v1/clusters
 ```
 # Copying required jars!
 **this project depends on some spatial processing libraries above Apache Spark, you need to load them to the project in order to be able to call them in Jupyter**
-- [find the jars here](./instructions/jars/)
+- [find the jars here](./jars/)
 # running java kafka producer and send data to Azure Kafka cluster
 
 - **copying files**
