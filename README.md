@@ -7,7 +7,7 @@
 
 *this is an active and on-going project, contents will be updated regularly, stay tuned!*
 
-# N.B. if you are using this code, please cite our works
+*N.B. if you are using this code, please cite our works*
 "...first ..." [[1]](#1).
 "...second ..." [[2]](#2).
 "...third ..." [[3]](#3).
