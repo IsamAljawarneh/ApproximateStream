@@ -1,14 +1,14 @@
-# first
+# 1) 
 **to deploy a kafka - spark structured streaming cluser on Azure, do the following: Use Apache Spark Structured Streaming with Apache Kafka on HDInsight** 
 [SparkStruturedStreaming-kafka-Azure](https://docs.microsoft.com/it-it/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming)
 
-# install jq on your local machine
+# 2) install jq on your local machine
 ```
 sudo apt update
 sudo apt install jq
 ```
 
-# Deploy the Spark-kafka cluster using a template that is available in Microsoft website:
+# 3) Deploy the Spark-kafka cluster using a template that is available in Microsoft website:
 - [template deploy azure kafka-spark cluster](https://docs.microsoft.com/it-it/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming)
 
 
@@ -30,7 +30,7 @@ Zookeeper|A2 v2 (2 Cores, 4 GB RAM)|3
 - *check that you have resources*
 - homepage - subscriptions - subscription title (microsoft azure sponsorship 2) - Usage + quotas - youo need more than 30 vCPUs in Total Regional vCPUs
 
-# start using the cluster
+# 4) start using the cluster
 
 1. Gather host information
 
@@ -51,7 +51,7 @@ curl -sS -u admin:$password -G "https://YOUR_KAFKA_CLUSTER_NAME.azurehdinsight.n
 ```
 curl -sS -u admin:$password -G https://YOUR_KAFKA_CLUSTER_NAME.azurehdinsight.net/api/v1/clusters/skafka/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
 ```
-# Copying required jars!
+# 5) Copying required jars!
 **this project depends on some spatial processing libraries above Apache Spark, you need to load them to the project in order to be able to call them in Jupyter**
 - [find the jars here](./jars/)
 - copy the file titled `magellan-1.0.5-s_2.11.jar` to the `storage account of your Spark cluster`
@@ -68,7 +68,7 @@ curl -sS -u admin:$password -G https://YOUR_KAFKA_CLUSTER_NAME.azurehdinsight.ne
     }
 }
 ```
-# running java kafka producer and send data to Azure Kafka cluster
+# 6) running java kafka producer and send data to Azure Kafka cluster
 
 ***copying files***
 
@@ -106,7 +106,7 @@ we need to store it in a blob storage:
 scp guang.csv USER_NAME@YOUR_KAFKA_CLUSTER_NAME-ssh.azurehdinsight.net:guang.csv 
 ```
 
-# to run kafka producer
+# 7) to run kafka producer
 1. create the topic in Jupyter
 2. login to the headnode of kafka cluster
   - navigate to kafka cluster 'skafka' | SSH + Cluster login
@@ -144,6 +144,7 @@ java -jar kafka-producer-consumer.jar shenzhen spatial1 $KAFKABROKERS /home/isam
         pwd in the kafka cluster headnode
         data is either shenzhen or nyc
  ```
+# run the Jupyter notebook [find it here](../notebooks)
 ## References
 <a id="1">[1]</a> 
 Wang, Guang, et al. (2019). 
