@@ -8,4 +8,4 @@ include:
   - run_on_Azure.md
   - AZURE_Shenzhen_SAOS_14-4-2021_sparkStructuredStreaming_kafka_OnlineSampling.md
 
-theme: jekyll-theme-slate
+theme: jekyll-theme-merlot
