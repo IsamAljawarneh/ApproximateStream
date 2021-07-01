@@ -144,9 +144,18 @@ java -jar kafka-producer-consumer.jar shenzhen spatial1 $KAFKABROKERS /home/isam
         pwd in the kafka cluster headnode
         data is either shenzhen or nyc
  ```
-# run the Jupyter notebook [find it here](../notebooks)
+# 8) run the Jupyter notebook [find it here](../notebooks)
+# N.B. if you are using this code, please cite our works
+"...first ..." [[2]](#2).
+"...second ..." [[3]](#3).
+"...third ..." [[4]](#4).
+
 ## References
 <a id="1">[1]</a> 
 Wang, Guang, et al. (2019). 
 "Experience: Understanding long-term evolving patterns of shared electric vehicle networks.". 
 The 25th Annual International Conference on Mobile Computing and Networking. 2019.
+<a id="2">[2]</a> 
+Al Jawarneh, Isam M., Paolo Bellavista, Antonio Corradi, Luca Foschini, and Rebecca Montanari.  (2021)
+"QoS-Aware Approximate Query Processing for Smart Cities Spatial Data Streams".
+Sensors 21, no. 12: 4160. https://doi.org/10.3390/s21124160
