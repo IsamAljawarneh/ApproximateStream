@@ -3,7 +3,7 @@
 **this blog shows an example of how to run an approximate stream processing on Azure HDInsights deployed with Apache Spark and Kafka.**
 
 
-[run on azure](./instructions/run_on_Azure.md)
+# [run on azure](./instructions/run_on_Azure.md)
 
 # this is an active and on-going project, contents will be updated regularly, stay tuned!
 
