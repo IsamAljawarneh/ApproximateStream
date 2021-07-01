@@ -100,7 +100,7 @@ we need to store it in a blob storage:
 > replace `CONTAINER_NAME` with the container name in your Spark storage account where you hosted the `shenzhen_converted.geojson` regions file. ALSO, replace `STORAGE_ACCOUNT_NAME` with the name of your Spark `storage account`
 
 - copy the `Electric Vehicle Data` mobility data [find it here](https://www.cs.rutgers.edu/~dz220/Data.html)
-- "...N.B. if you are using this data **add the following reference** ..." [[1]](#1).
+
 
 ```
 scp guang.csv USER_NAME@YOUR_KAFKA_CLUSTER_NAME-ssh.azurehdinsight.net:guang.csv 
@@ -146,16 +146,17 @@ java -jar kafka-producer-consumer.jar shenzhen spatial1 $KAFKABROKERS /home/isam
  ```
 # 8) run the Jupyter notebook [find it here](../notebooks)
 # N.B. if you are using this code, please cite our works
-"...first ..." [[2]](#2).
-"...second ..." [[3]](#3).
-"...third ..." [[4]](#4).
+"...first ..." [[1]](#1).
+"...second ..." [[2]](#2).
+"...third ..." [[3]](#3).
 
 ## References
 - <a id="1">[1]</a> 
-Wang, Guang, et al. (2019). 
-"Experience: Understanding long-term evolving patterns of shared electric vehicle networks.". 
-The 25th Annual International Conference on Mobile Computing and Networking. 2019.
-- <a id="2">[2]</a> 
 Al Jawarneh, Isam M., Paolo Bellavista, Antonio Corradi, Luca Foschini, and Rebecca Montanari.  (2021)
 "QoS-Aware Approximate Query Processing for Smart Cities Spatial Data Streams".
 Sensors 21, no. 12: 4160. https://doi.org/10.3390/s21124160
+- <a id="1">[1]</a> 
+Al Jawarneh, I. M., Bellavista, P., Corradi, A., Foschini, L., & Montanari, R. (2020, September).
+"Spatially Representative Online Big Data Sampling for Smart Cities".
+In 2020 IEEE 25th International Workshop on Computer Aided Modeling and Design of Communication Links and Networks (CAMAD) (pp. 1-6). IEEE.
+
