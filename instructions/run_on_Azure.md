@@ -151,11 +151,11 @@ java -jar kafka-producer-consumer.jar shenzhen spatial1 $KAFKABROKERS /home/isam
 "...third ..." [[4]](#4).
 
 ## References
-<a id="1">[1]</a> 
+- <a id="1">[1]</a> 
 Wang, Guang, et al. (2019). 
 "Experience: Understanding long-term evolving patterns of shared electric vehicle networks.". 
 The 25th Annual International Conference on Mobile Computing and Networking. 2019.
-<a id="2">[2]</a> 
+- <a id="2">[2]</a> 
 Al Jawarneh, Isam M., Paolo Bellavista, Antonio Corradi, Luca Foschini, and Rebecca Montanari.  (2021)
 "QoS-Aware Approximate Query Processing for Smart Cities Spatial Data Streams".
 Sensors 21, no. 12: 4160. https://doi.org/10.3390/s21124160
