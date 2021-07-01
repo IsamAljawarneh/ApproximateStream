@@ -5,7 +5,7 @@
 
 # [run on azure](./instructions/run_on_Azure.md)
 
-# this is an active and on-going project, contents will be updated regularly, stay tuned!
+*this is an active and on-going project, contents will be updated regularly, stay tuned!*
 
 # N.B. if you are using this code, please cite our works
 "...first ..." [[1]](#1).
