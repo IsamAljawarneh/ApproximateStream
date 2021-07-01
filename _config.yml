@@ -6,6 +6,6 @@ relative_links:
 include:
   - README.md
   - run_on_Azure.md
-  - AZURE_Shenzhen_SAOS_14-4-2021_sparkStructuredStreaming_kafka_OnlineSampling.md
+  - Spatial_Query_processing_AZURE.md
 
 theme: jekyll-theme-merlot
