@@ -111,7 +111,7 @@ scp guang.csv USER_NAME@YOUR_KAFKA_CLUSTER_NAME-ssh.azurehdinsight.net:guang.csv
 2. login to the headnode of kafka cluster
   - navigate to kafka cluster 'skafka' | SSH + Cluster login
   - copy the login command and use it in your local machine's terminal
-   > ssh isam@skafka-ssh.azurehdinsight.net
+   > ssh USER_NAME@YOUR_KAFKA_CLUSTER_NAME-ssh.azurehdinsight.net
 2. get the kafkaBrokers list running the following command in your local machine
 
 ```
