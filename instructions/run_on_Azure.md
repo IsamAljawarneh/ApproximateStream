@@ -34,25 +34,22 @@ Zookeeper|A2 v2 (2 Cores, 4 GB RAM)|3
 
 1. Gather host information
 
-- > curl -sS -u admin:$password -G "https://%CLUSTERNAME%.azurehdinsight.net/api/v1/clusters/%CLUSTERNAME%/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2
-
 ```
-export password='cluster_pass'
-export CLUSTERNAME=skafka
+export password='YOUR_KAFKA_CLUSTER_PASSWORD'
+export CLUSTERNAME=YOUR_KAFKA_CLUSTER_NAME
 
 ```
 ```
 
-curl -sS -u admin:$password -G "https://skafka.azurehdinsight.net/api/v1/clusters/skafka/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2
+curl -sS -u admin:$password -G "https://YOUR_KAFKA_CLUSTER_NAME.azurehdinsight.net/api/v1/clusters/skafka/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2
 ```
 
-- Replace KafkaCluster with the name of your Kafka cluster (skafka), and KafkaPassword with the cluster login password.
-2. From a web browser, navigate to https://CLUSTERNAME.azurehdinsight.net/jupyter, where CLUSTERNAME is the name of your spark cluster (sspark in this case). When prompted, enter the cluster login (admin) and password used when you created the cluster.
+- Replace `YOUR_KAFKA_CLUSTER_NAME` with the name of your Kafka cluster, and `YOUR_KAFKA_CLUSTER_PASSWORD` with the cluster login password.
+2. From a web browser, navigate to https://CLUSTERNAME.azurehdinsight.net/jupyter, where CLUSTERNAME is the name of your `Spark` cluster. When prompted, enter the cluster login (`admin` is the default) and `Spark` cluster password used when you created the cluster.
 4. Use the curl and jq commands  to obtain broker hosts information.
-- > curl -sS -u admin:$password -G https://skafka.azurehdinsight.net/api/v1/clusters/skafka/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
 
 ```
-curl -sS -u admin:$password -G https://skafka.azurehdinsight.net/api/v1/clusters/skafka/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
+curl -sS -u admin:$password -G https://YOUR_KAFKA_CLUSTER_NAME.azurehdinsight.net/api/v1/clusters/skafka/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
 ```
 # Copying required jars!
 **this project depends on some spatial processing libraries above Apache Spark, you need to load them to the project in order to be able to call them in Jupyter**
@@ -77,11 +74,12 @@ curl -sS -u admin:$password -G https://skafka.azurehdinsight.net/api/v1/clusters
 
 - copy the Kafka Java producer fat .jar file `saosKafkaProducer-1.0-SNAPSHOT.jar` [find it here](./jars)  from this folder  to a folder in your kafka cluster in Azure
 ```
-scp ./target/saosKafkaProducer-1.0-SNAPSHOT.jar isam@skafka-ssh.azurehdinsight.net:kafka-producer-consumer.jar
+scp ./target/saosKafkaProducer-1.0-SNAPSHOT.jar USER_NAME@YOUR_KAFKA_CLUSTER_NAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
 ```
+> replace `USER_NAME` with the user name you have chosen when you created the cluster `sshuser` is the default!
 - copy the geojson file **shenzhen_converted.geojson** to the same working directory
 ```
-scp guang.csv isam@skafka-ssh.azurehdinsight.net:guang.csv
+scp guang.csv USER_NAME@YOUR_KAFKA_CLUSTER_NAME-ssh.azurehdinsight.net:guang.csv
 ```
 
 
@@ -96,18 +94,17 @@ we need to store it in a blob storage:
 [find it here](../data/)
 ```
 - then you can access it in your notebook using:
-- "wasb://sspark@7q6kgdctotuwu.blob.core.windows.net/datasets/shenzhen_converted.geojson"
+- "wasb://CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/datasets/shenzhen_converted.geojson"
 - where sspark is the spark cluster name
 ```
+> replace `CONTAINER_NAME` with the container name in your Spark storage account where you hosted the `shenzhen_converted.geojson` regions file. ALSO, replace `STORAGE_ACCOUNT_NAME` with the name of your Spark `storage account`
 
 - copy the `Electric Vehicle Data` mobility data [find it here](https://www.cs.rutgers.edu/~dz220/Data.html)
 - "...N.B. if you are using this data **add the following reference** ..." [[1]](#1).
 
-## References
-<a id="1">[1]</a> 
-Wang, Guang, et al. (2019). 
-"Experience: Understanding long-term evolving patterns of shared electric vehicle networks.". 
-The 25th Annual International Conference on Mobile Computing and Networking. 2019.
+```
+scp guang.csv USER_NAME@YOUR_KAFKA_CLUSTER_NAME-ssh.azurehdinsight.net:guang.csv 
+```
 
 # to run kafka producer
 1. create the topic in Jupyter
@@ -121,7 +118,7 @@ The 25th Annual International Conference on Mobile Computing and Networking. 201
 sudo apt -y install jq
 export password='cluster_pass'
 
-export KAFKABROKERS=$(curl -sS -u admin:$password -G https://skafka.azurehdinsight.net/api/v1/clusters/skafka/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
+export KAFKABROKERS=$(curl -sS -u admin:$password -G https://YOUR_KAFKA_CLUSTER_NAME.azurehdinsight.net/api/v1/clusters/skafka/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
 ```
 
 
@@ -147,4 +144,8 @@ java -jar kafka-producer-consumer.jar shenzhen spatial1 $KAFKABROKERS /home/isam
         pwd in the kafka cluster headnode
         data is either shenzhen or nyc
  ```
-
+## References
+<a id="1">[1]</a> 
+Wang, Guang, et al. (2019). 
+"Experience: Understanding long-term evolving patterns of shared electric vehicle networks.". 
+The 25th Annual International Conference on Mobile Computing and Networking. 2019.
