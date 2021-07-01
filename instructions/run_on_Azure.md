@@ -144,7 +144,7 @@ java -jar kafka-producer-consumer.jar shenzhen spatial1 $KAFKABROKERS /home/isam
         pwd in the kafka cluster headnode
         data is either shenzhen or nyc
  ```
-# 8) run the Jupyter notebook [find it here](../notebooks)
+# 8) run the Jupyter notebook [find it here](../notebooks/Spatial_Query_processing_AZURE.md)
 # N.B. if you are using this code, please cite our works
 "...first ..." [[1]](#1).
 "...second ..." [[2]](#2).
